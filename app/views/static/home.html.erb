@@ -7,20 +7,71 @@
   <body>
     <div class="hero-image">
       <div class="hero-text">
-        <h1>Welcome on ShittyCSS!!</h1>
-        <p>Please click on the shitty button to.... actually do shitty stuff</p>
-        <button class="btn">SHIT</button>
+        <h1>Welcome on ShittyKebab!!</h1>
+        <p>Please click on the Order button to.... actually order some awesome food!</p>
+        <button class="btn">order</button>
       </div>
     </div>
 
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim neque, dignissim quis turpis quis, tempor elementum mauris. Quisque id finibus tortor. Mauris consequat feugiat est, non egestas nibh. Duis et ullamcorper dolor. In vel elit nunc. Morbi et tortor condimentum, blandit leo volutpat, aliquam mi. Donec ornare massa a nunc tempus lobortis. Donec ligula risus, gravida id purus vel, blandit lacinia mi. Duis gravida tincidunt eros quis blandit. Aliquam erat volutpat. Proin rutrum, augue at faucibus gravida, quam lorem suscipit nulla, id mollis nisl erat a magna. Maecenas vitae blandit ex. Ut at maximus libero, ac lacinia sem. Aliquam a dui felis.
+    <div class="tabs">
+      <ul id="tabs-nav">
+        <li><a href="#tab1">Présentation</a></li>
+        <li><a href="#tab2">Menu</a></li>
+        <li><a href="#tab3">Surprise</a></li>
+      </ul> <!-- END tabs-nav -->
 
-      Ut sit amet posuere erat. Suspendisse feugiat velit nec justo sollicitudin semper. Phasellus purus odio, luctus eu lectus in, condimentum elementum sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum elementum nisl nec egestas congue. Cras elit ante, facilisis vitae scelerisque quis, semper et metus. Quisque rhoncus porttitor nunc. Aliquam ac sem nibh. In tristique, metus nec scelerisque pharetra, purus ipsum laoreet mauris, sed rutrum lacus diam et ipsum. Fusce ut mattis turpis. Nulla elementum, massa vitae pulvinar sollicitudin, lacus felis placerat quam, vel aliquam justo sapien sit amet augue. Nunc pretium sem et velit rutrum mattis. Duis posuere augue quis vehicula dapibus.
+      <div id="tabs-content">
+        <div id="tab1" class="tab-content">
+          <h2>Presentation</h2>
+          <p>"You know, there's a million fine looking women in the world, dude. But they don't all bring you lasagna at work. Most of 'em just cheat on you."</p>
+        </div>
+        <div id="tab2" class="tab-content">
+          <h2>Menu</h2>
+          <p>"My friend here's trying to convince me that any independent contractors who were working on the uncompleted Death Star were innocent victims when it was destroyed by the Rebels."</p>
+        </div>
+        <div id="tab3" class="tab-content">
+          <h2>Surprise</h2>
+          <p>"In light of this lurid tale, I don't even see how you can romanticize your relationship with Caitlin. She broke your heart and inadvertently drove men to deviant lifestyles."</p>
+        </div>
+      </div> <!-- END tabs-content -->
+    </div> <!-- END tabs -->
 
-      Suspendisse vestibulum neque vel est maximus mollis. Curabitur id venenatis eros. Suspendisse condimentum est risus, sed mollis nunc mollis sed. Fusce eu neque leo. Morbi nec efficitur augue, ut viverra nisi. Mauris feugiat, turpis eu lobortis placerat, erat ligula venenatis lacus, quis iaculis sapien ex in sem. Nulla fringilla posuere hendrerit. Vestibulum et massa bibendum, sodales est quis, molestie sapien. Integer consequat velit sit amet sapien pharetra pharetra. Fusce sagittis, metus vel pellentesque fringilla, quam turpis consectetur velit, eget gravida elit turpis vitae enim. Donec sagittis, erat ut pulvinar aliquet, quam risus semper ligula, non dictum arcu est in purus.
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 
-      Praesent euismod in quam quis egestas. Donec iaculis dapibus massa, nec blandit ex. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla ultricies est turpis, ut bibendum est laoreet vel. Mauris ultricies lorem varius ligula efficitur hendrerit. Phasellus arcu ante, volutpat at nisi ut, tincidunt varius ex. Cras aliquam rutrum velit, vitae finibus nibh. Nullam quis nisi ut nisl dictum dignissim at eget lacus. Vestibulum nec nisl ac dolor condimentum vulputate quis fermentum lacus. Nam ut mi varius est suscipit feugiat. Pellentesque nec auctor nisi. Curabitur sed sagittis velit.
-    </p>
+    <script>
+      // Show the first tab and hide the rest
+      $('#tabs-nav li:first-child').addClass('active');
+      $('.tab-content').hide();
+      $('.tab-content:first').show();
 
+      // Click function
+      $('#tabs-nav li').click(function(){
+        $('#tabs-nav li').removeClass('active');
+        $(this).addClass('active');
+        $('.tab-content').hide();
+
+        var activeTab = $(this).find('a').attr('href');
+        $(activeTab).fadeIn();
+        return false;
+      });
+    </script>
+
+    <div class="slideshow">
+    	<ul>
+    		<li> <%= image_tag("kebab3.jpg") %> </li>
+    		<li> <%= image_tag("kebab2.jpg") %> </li>
+    		<li> <%= image_tag("kebab3.jpg") %> </li> -->
+    	</ul>
+    </div>
+
+    <script>
+      $(function(){
+      setInterval(function(){
+         $(".slideshow ul").animate({marginLeft:-1500},800,function(){
+        $(this).css({marginLeft:0}).find("li:last").after($(this).find("li:first"));
+         })
+      }, 5000);
+    });
+    </script>
+  </body>
 </html>
